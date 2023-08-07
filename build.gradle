@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'ca.cmetcalfe.locationshare'
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "ca.cmetcalfe.locationshare"
+        minSdkVersion 14
+        targetSdkVersion 33
+        versionCode 9
+        versionName "1.4.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    lint {
+        warning 'MissingTranslation'
+        ignore 'OldTargetApi', 'ButtonStyle'
+        textReport true
+        abortOnError true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.preference:preference:1.2.0'
+}
